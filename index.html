@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A high-precision, interactive developer portfolio showcasing expertise in frontend architecture, UI design, and technical engineering."
+    />
+    <meta property="og:title" content="Jarel Tanghal | Portfolio" />
+    <meta
+      property="og:description"
+      content="A high-precision, interactive developer portfolio showcasing expertise in frontend architecture, UI design, and technical engineering."
+    />
+    <meta
+      property="og:image"
+      content="project-previews/timesheet-payroll/08-dashboard.png"
+    />
+    <meta property="og:type" content="website" />
+    <title>Jarel Tanghal | Portfolio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' font-family='Arial' font-size='28' font-weight='700' fill='white'%3EJT%3C/text%3E%3C/svg%3E"
+    />
+    <script>
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, 0);
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/ionicons@7.4.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <div class="page-loader" id="pageLoader" aria-label="Loading portfolio">
+      <span class="loader-panel loader-panel-left"></span>
+      <span class="loader-panel loader-panel-right"></span>
+      <div class="loader-card">
+        <div class="loader-brand"><span>&lt;</span>jarel.dev<span> /&gt;</span></div>
+        <div class="loader-bar"><span></span></div>
+        <p id="loaderText" aria-live="polite">booting_portfolio 0%</p>
+      </div>
+    </div>
+
+    <nav class="site-nav" id="siteNav">
+      <div class="nav-inner">
+        <a href="#hero" class="brand" aria-label="Go to home">
+          <span>&lt;</span>jarel.dev<span> /&gt;</span>
+        </a>
+
+        <div class="desktop-nav" aria-label="Primary navigation">
+          <a href="#about">about</a>
+          <a href="#experience">experience</a>
+          <a href="#education">education</a>
+          <a href="#projects">projects</a>
+          <a href="#skills">skills</a>
+          <button class="nav-contact" data-open-contact>contact</button>
+        </div>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">about</a>
+        <a href="#experience">experience</a>
+        <a href="#education">education</a>
+        <a href="#projects">projects</a>
+        <a href="#skills">skills</a>
+        <button data-open-contact>contact</button>
+      </div>
+    </nav>
+
+    <main>
+      <section id="hero" class="hero section-grid">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="https://media.base44.com/images/public/6a212e2f85c4453105d131ba/66663465a_generated_ed305033.png"
+            alt=""
+          />
+          <span class="orb orb-one"></span>
+          <span class="orb orb-two"></span>
+        </div>
+
+        <div class="container hero-layout">
+          <div class="hero-copy reveal reveal-left">
+            <p class="eyebrow">developer_01</p>
+            <h1><span>JAREL</span> RENDY TANGHAL</h1>
+            <p class="hero-subtitle">Web Developer · Frontend Developer · Full Stack · UI Designer</p>
+
+            <div class="hero-meta">
+              <span><ion-icon name="location-outline"></ion-icon>Malolos, Philippines</span>
+              <span><ion-icon name="mail-outline"></ion-icon>jarelramostanghal@gmail.com</span>
+              <span><ion-icon name="call-outline"></ion-icon>+63 906 340 8609</span>
+              <span><ion-icon name="call-outline"></ion-icon>+63 924 104 9592</span>
+            </div>
+
+            <div class="hero-actions">
+              <button class="button primary" data-open-contact>Get in Touch</button>
+              <a class="button outline resume-download" href="./assets/JarelTanghal_Resume.pdf" download="JarelTanghal_Resume.pdf" data-resume-download>
+                <span class="resume-spinner" aria-hidden="true"></span>
+                <span class="resume-label">Download CV</span>
+                <span class="resume-progress" aria-hidden="true"></span>
+                <span class="resume-status" aria-live="polite"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="terminal-card reveal reveal-right delay-1">
+            <div class="terminal-top">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span>mission.ts</span>
+            </div>
+            <pre id="typedCode" class="terminal-body"><span class="cursor">▎</span></pre>
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about">
+          <ion-icon name="arrow-down-outline"></ion-icon>
+        </a>
+      </section>
+
+      <section id="about" class="section section-grid about-section">
+        <span class="orb about-orb" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading reveal reveal-left">
+            <p class="section-kicker">// about_me</p>
+            <div class="about-title-row">
+              <h2>About Me</h2>
+              <button class="role-pill" id="rolePill" type="button" aria-label="Click to switch role">
+                <span>Website Developer</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-image reveal reveal-left">
+              <div class="image-glow"></div>
+              <img
+                src="./assets/jarel'spicture.jpeg"
+                alt="Jarel Tanghal - Web Developer"
+              />
+              <div class="status-badge">
+                <p>status:</p>
+                <strong><span></span>available_for_hire</strong>
+              </div>
+            </div>
+
+            <div class="about-copy reveal reveal-right delay-1">
+              <p>
+                Detail-oriented BSIT graduate and frontend web developer with hands-on experience in
+                Angular-based applications, UI design, and responsive web systems. Demonstrated ability
+                to work efficiently in fast-paced environments, collaborate across teams, and translate
+                requirements into clean, user-focused interfaces.
+              </p>
+              <p>
+                Brings additional strengths in communication, content strategy, and customer
+                coordination from administrative and content creation experience, supported by a solid
+                foundation in modern web technologies and problem-solving.
+              </p>
+              <div class="stat-grid" id="statGrid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section section-grid experience-section">
+        <span class="orb exp-orb" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading reveal reveal-left">
+            <p class="section-kicker">// career_ledger</p>
+            <h2>Work Experience</h2>
+          </div>
+          <div class="timeline" id="experienceTimeline"></div>
+        </div>
+      </section>
+
+      <section id="education" class="section card-band">
+        <div class="container">
+          <div class="section-heading reveal reveal-left">
+            <p class="section-kicker">// education</p>
+            <h2>Academic Foundation</h2>
+          </div>
+
+          <article class="education-card reveal reveal-right">
+            <span class="corner-wash" aria-hidden="true"></span>
+            <div class="education-title">
+              <ion-icon name="school-outline"></ion-icon>
+              <h3>Bachelor of Science in Information Technology</h3>
+            </div>
+            <p class="education-school">Bulacan State University</p>
+            <p class="education-period">2022 – 2026</p>
+            <p class="education-copy">
+              Bachelor of Science in Information Technology graduate with a strong academic foundation
+              in web and application development, programming fundamentals, database management, and
+              networking concepts. A consistent Dean's Lister from 1st to 3rd year, and completed
+              600 hours of On-the-Job Training (OJT) with hands-on experience in frontend web
+              development, contributing to system-based projects while adhering to usability,
+              performance, and quality standards.
+            </p>
+            <div class="education-stats">
+              <div><ion-icon name="ribbon-outline"></ion-icon><span><strong>Dean's Lister</strong><small>1st – 3rd Year</small></span></div>
+              <div><ion-icon name="time-outline"></ion-icon><span><strong>600 Hours OJT</strong><small>Frontend Development</small></span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <div class="container">
+          <div class="section-heading reveal reveal-left">
+            <p class="section-kicker">// project_archive</p>
+            <h2>Featured Projects</h2>
+            <p>A collection of web development projects — click any card for full details and UI previews.</p>
+          </div>
+
+          <div class="filters reveal reveal-right" id="projectFilters"></div>
+          <div class="project-grid" id="projectGrid"></div>
+        </div>
+      </section>
+
+      <section id="skills" class="section card-band">
+        <div class="container">
+          <div class="section-heading reveal reveal-left">
+            <p class="section-kicker">// tech_stack</p>
+            <h2>Skills & Technologies</h2>
+            <p>Sorted by proficiency — Expert, Advanced, Proficient, and Familiar.</p>
+          </div>
+          <div class="skills-stack" id="skillsStack"></div>
+        </div>
+      </section>
+
+      <section class="section testimonials-section">
+        <div class="container">
+          <div class="section-heading reveal reveal-left">
+            <p class="section-kicker">// references</p>
+            <h2>What People Say</h2>
+          </div>
+          <div class="testimonial-grid" id="testimonialGrid"></div>
+        </div>
+      </section>
+
+      <section class="section card-band hobbies-section">
+        <div class="container">
+          <div class="section-heading centered reveal reveal-zoom">
+            <p class="section-kicker">// off_screen</p>
+            <h2>Beyond the Code</h2>
+            <p>A few things I enjoy when I'm not at the keyboard.</p>
+          </div>
+          <div class="hobby-grid" id="hobbyGrid"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-grid contact-section">
+        <span class="orb contact-orb-one" aria-hidden="true"></span>
+        <span class="orb contact-orb-two" aria-hidden="true"></span>
+        <div class="container">
+          <div class="section-heading centered reveal reveal-zoom">
+            <p class="section-kicker">// contact_protocol</p>
+            <h2>Let's Build Something Together</h2>
+            <p>
+              I'm currently open to frontend or backend developer roles, freelance projects, and
+              collaboration opportunities.
+            </p>
+          </div>
+
+          <button class="email-card reveal reveal-left" id="copyEmailLarge">
+            <small>Click to copy email</small>
+            <strong>jarelramostanghal@gmail.com</strong>
+            <span><ion-icon name="copy-outline"></ion-icon><b id="emailLargeStatus">copy_to_clipboard</b></span>
+          </button>
+
+          <div class="contact-chips reveal reveal-right">
+            <button id="copyPhoneChip">
+              <ion-icon name="call-outline"></ion-icon>
+              +63 906 340 8609
+              <ion-icon class="copy-mini" name="copy-outline"></ion-icon>
+            </button>
+            <button id="copyPhoneChipAlt">
+              <ion-icon name="call-outline"></ion-icon>
+              +63 924 104 9592
+              <ion-icon class="copy-mini" name="copy-outline"></ion-icon>
+            </button>
+            <span><ion-icon name="location-outline"></ion-icon>Malolos, Philippines</span>
+            <a
+              class="jobstreet-chip"
+              href="https://ph.jobstreet.com/profiles/jarelrendy-tanghal-FgHxCGCjS1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ion-icon name="briefcase-outline"></ion-icon>
+              JobStreet Profile
+              <ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+          <p class="copy-feedback" id="phoneChipStatus"></p>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-glow" aria-hidden="true"></div>
+        <div class="container footer-inner">
+          <p><span>&lt;</span>jarel.dev<span> /&gt;</span><b id="footerYear">© 2026 Jarel Rendy R. Tanghal</b></p>
+          <p>Built with HTML · CSS · JavaScript · Tailwind CSS</p>
+        </div>
+      </footer>
+    </main>
+
+    <div class="modal-shell" id="projectModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-project></div>
+      <article class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <div class="project-modal-hero">
+          <img id="modalHeroImage" alt="" />
+          <div class="project-modal-gradient"></div>
+          <button class="modal-close" data-close-project aria-label="Close project modal">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+          <div class="modal-badges" id="modalBadges"></div>
+        </div>
+        <div class="project-modal-body">
+          <h2 id="projectModalTitle"></h2>
+          <div class="modal-meta" id="modalMeta"></div>
+          <div class="role-note" id="modalRole"></div>
+          <p class="modal-description" id="modalDescription"></p>
+          <div class="preview-wrap" id="modalPreview"></div>
+          <div class="modal-list-block">
+            <p><ion-icon name="pricetag-outline"></ion-icon>key_features</p>
+            <ul id="modalFeatures"></ul>
+          </div>
+          <div class="modal-list-block">
+            <p>tech_stack</p>
+            <div class="modal-stack" id="modalStack"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="modal-shell" id="experienceModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-experience></div>
+      <article class="project-modal experience-modal" role="dialog" aria-modal="true" aria-labelledby="experienceModalTitle">
+        <div class="experience-modal-top">
+          <div>
+            <p>// work_details</p>
+            <h2 id="experienceModalTitle"></h2>
+          </div>
+          <button class="modal-close light" data-close-experience aria-label="Close work experience modal">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="project-modal-body">
+          <div class="modal-meta" id="experienceModalMeta"></div>
+          <div class="role-note" id="experienceModalRole"></div>
+          <p class="modal-description" id="experienceModalDescription"></p>
+          <div class="modal-list-block">
+            <p><ion-icon name="checkmark-circle-outline"></ion-icon>highlights</p>
+            <ul id="experienceModalHighlights"></ul>
+          </div>
+          <div class="modal-list-block">
+            <p>tools_and_focus</p>
+            <div class="modal-stack" id="experienceModalStack"></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="modal-shell contact-modal-shell" id="contactModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-contact></div>
+      <article class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <header>
+          <div>
+            <p>contact_info.json</p>
+            <h2 id="contactModalTitle">Get In Touch</h2>
+          </div>
+          <button class="modal-close light" data-close-contact aria-label="Close contact modal">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </header>
+        <div class="contact-modal-body">
+          <button class="contact-row" data-copy-email>
+            <span><ion-icon name="mail-outline"></ion-icon></span>
+            <b><small>Email</small>jarelramostanghal@gmail.com</b>
+            <em><ion-icon name="copy-outline"></ion-icon><small>copy</small></em>
+          </button>
+          <button class="contact-row" data-copy-phone data-phone="+639063408609">
+            <span><ion-icon name="call-outline"></ion-icon></span>
+            <b><small>Mobile</small>+63 906 340 8609</b>
+            <em><ion-icon name="copy-outline"></ion-icon><small>copy</small></em>
+          </button>
+          <button class="contact-row" data-copy-phone data-phone="+639241049592">
+            <span><ion-icon name="call-outline"></ion-icon></span>
+            <b><small>Mobile 2</small>+63 924 104 9592</b>
+            <em><ion-icon name="copy-outline"></ion-icon><small>copy</small></em>
+          </button>
+          <div class="contact-row static">
+            <span><ion-icon name="location-outline"></ion-icon></span>
+            <b><small>Address</small>Malolos, Bulacan, Philippines</b>
+          </div>
+          <div class="social-divider"><span></span><small>social</small><span></span></div>
+          <a class="contact-row link featured-github" href="https://github.com/jareltanghal" target="_blank" rel="noopener noreferrer">
+            <span><ion-icon name="logo-github"></ion-icon></span>
+            <b><small>GitHub · Main</small>github.com/jareltanghal</b>
+            <em><ion-icon name="star"></ion-icon></em>
+          </a>
+          <a class="contact-row link" href="https://github.com/JarelRendy" target="_blank" rel="noopener noreferrer">
+            <span><ion-icon name="logo-github"></ion-icon></span>
+            <b><small>GitHub · Archive</small>github.com/JarelRendy</b>
+            <em>→</em>
+          </a>
+          <a class="contact-row link" href="https://ph.jobstreet.com/profiles/jarelrendy-tanghal-FgHxCGCjS1" target="_blank" rel="noopener noreferrer">
+            <span><ion-icon name="briefcase-outline"></ion-icon></span>
+            <b><small>JobStreet</small>ph.jobstreet.com/profiles/jarelrendy-tanghal-FgHxCGCjS1</b>
+            <em>→</em>
+          </a>
+          <a class="contact-row link" href="https://facebook.com/jarel.tanghal" target="_blank" rel="noopener noreferrer">
+            <span><ion-icon name="logo-facebook"></ion-icon></span>
+            <b><small>Facebook</small>facebook.com/jarel.tanghal</b>
+            <em>→</em>
+          </a>
+          <a class="button primary resume-button resume-download" href="./assets/JarelTanghal_Resume.pdf" download="JarelTanghal_Resume.pdf" data-resume-download>
+            <ion-icon name="download-outline"></ion-icon>
+            <span class="resume-spinner" aria-hidden="true"></span>
+            <span class="resume-label">Download CV / Resume</span>
+            <span class="resume-progress" aria-hidden="true"></span>
+            <span class="resume-status" aria-live="polite"></span>
+          </a>
+        </div>
+        <footer><span>status:</span> available_for_hire · Philippines</footer>
+      </article>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

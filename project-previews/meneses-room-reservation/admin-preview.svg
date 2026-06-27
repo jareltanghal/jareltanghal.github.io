@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Meneses Room Reservation admin dashboard preview</title>
+  <desc id="desc">Static preview of the Meneses Room Reservation admin dashboard with controls, statistics, and booking request table.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7fb"/>
+      <stop offset="0.52" stop-color="#f5d3e4"/>
+      <stop offset="1" stop-color="#c94f7a"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1">
+      <stop offset="0" stop-color="#ba3c66"/>
+      <stop offset="1" stop-color="#e91e63"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#5b1530" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <g opacity="0.2">
+    <circle cx="108" cy="96" r="64" fill="#ffffff"/>
+    <circle cx="1032" cy="142" r="92" fill="#ffffff"/>
+    <circle cx="1018" cy="640" r="120" fill="#ffffff"/>
+    <path d="M0 210 C210 170 326 298 536 236 C760 169 913 204 1200 126 L1200 0 L0 0 Z" fill="#ffffff"/>
+  </g>
+  <rect x="86" y="68" width="1028" height="624" rx="24" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="86" y="68" width="1028" height="108" rx="24" fill="url(#panel)"/>
+  <rect x="86" y="140" width="1028" height="36" fill="url(#panel)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="132" y="120" fill="#ffffff" font-size="34" font-weight="700">Admin Dashboard</text>
+    <text x="132" y="150" fill="#ffdce9" font-size="17" letter-spacing="3">MENESES ROOM RESERVATION SYSTEM</text>
+    <rect x="866" y="104" width="176" height="42" rx="21" fill="#ffffff" opacity="0.18"/>
+    <text x="904" y="131" fill="#ffffff" font-size="16" font-weight="700">admin preview</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="132" y="230" fill="#7d2244" font-size="14" letter-spacing="3" font-weight="700">DASHBOARD CONTROLS</text>
+    <g fill="#fff4f8" stroke="#f1a5c3">
+      <rect x="132" y="256" width="206" height="74" rx="14"/>
+      <rect x="362" y="256" width="206" height="74" rx="14"/>
+      <rect x="592" y="256" width="206" height="74" rx="14"/>
+      <rect x="822" y="256" width="206" height="74" rx="14"/>
+    </g>
+    <g fill="#2d2d2d" font-size="21" font-weight="700">
+      <text x="182" y="302">Users</text>
+      <text x="412" y="302">Admins</text>
+      <text x="632" y="302">Bookings</text>
+      <text x="862" y="302">Booked Rooms</text>
+    </g>
+    <g fill="#ba3c66" font-size="36" font-weight="700">
+      <text x="150" y="302">12</text>
+      <text x="380" y="302">3</text>
+      <text x="610" y="302">18</text>
+      <text x="840" y="302">9</text>
+    </g>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <text x="132" y="388" fill="#222222" font-size="27" font-weight="700">Booking Requests</text>
+    <text x="132" y="416" fill="#8d6f7b" font-size="16">Review pending room requests and approve or reject schedules.</text>
+    <rect x="132" y="446" width="936" height="174" rx="14" fill="#ffffff" stroke="#efd0dc"/>
+    <rect x="132" y="446" width="936" height="46" rx="14" fill="#333333"/>
+    <g fill="#ffffff" font-size="14" font-weight="700" letter-spacing="1">
+      <text x="158" y="475">ROOM</text>
+      <text x="326" y="475">STUDENT</text>
+      <text x="526" y="475">DATE</text>
+      <text x="682" y="475">STATUS</text>
+      <text x="874" y="475">ACTION</text>
+    </g>
+    <g fill="#333333" font-size="16">
+      <text x="158" y="532">Computer Laboratory 1</text>
+      <text x="326" y="532">Student Preview</text>
+      <text x="526" y="532">Today, 9:00 AM</text>
+      <text x="700" y="532" fill="#f59e0b" font-weight="700">Pending</text>
+      <rect x="858" y="508" width="84" height="34" rx="8" fill="#4caf50"/>
+      <rect x="952" y="508" width="80" height="34" rx="8" fill="#f44336"/>
+      <text x="874" y="530" fill="#ffffff" font-size="13" font-weight="700">Approve</text>
+      <text x="972" y="530" fill="#ffffff" font-size="13" font-weight="700">Reject</text>
+      <line x1="132" y1="558" x2="1068" y2="558" stroke="#f1d7e2"/>
+      <text x="158" y="596">Room 205A</text>
+      <text x="326" y="596">Student Preview</text>
+      <text x="526" y="596">Today, 1:00 PM</text>
+      <text x="700" y="596" fill="#4caf50" font-weight="700">Approved</text>
+      <text x="894" y="596" fill="#777777">Completed</text>
+    </g>
+  </g>
+</svg>

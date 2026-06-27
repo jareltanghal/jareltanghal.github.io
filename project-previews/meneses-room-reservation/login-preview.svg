@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Meneses Room Reservation login preview</title>
+  <desc id="desc">Static preview of the Meneses Room Reservation pink translucent login page over a campus background.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#29a8ef"/>
+      <stop offset="0.42" stop-color="#78d4ff"/>
+      <stop offset="1" stop-color="#ffdf75"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#4b1028" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <path d="M0 390 C120 310 265 322 366 280 C520 215 694 234 862 188 C1000 150 1095 139 1200 93 L1200 760 L0 760 Z" fill="#f8c455"/>
+  <path d="M0 312 C165 230 320 246 456 206 C622 156 818 164 1020 86 C1114 50 1166 42 1200 36 L1200 170 C1062 216 906 238 728 284 C543 333 357 348 180 395 C106 414 48 437 0 467 Z" fill="#c92638" opacity="0.92"/>
+  <path d="M0 340 C160 258 323 276 458 235 C623 185 824 194 1200 84" fill="none" stroke="#ff83a4" stroke-width="34" opacity="0.86"/>
+  <g opacity="0.35" stroke="#4a1a2b" stroke-width="3">
+    <line x1="850" y1="0" x2="1200" y2="300"/>
+    <line x1="900" y1="0" x2="1200" y2="260"/>
+    <line x1="940" y1="0" x2="1200" y2="230"/>
+  </g>
+  <rect x="455" y="56" width="290" height="648" rx="12" fill="#efb3cf" opacity="0.88" filter="url(#shadow)"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="144" fill="#7f1747" font-size="54" font-family="Georgia, serif">MR</text>
+    <text x="600" y="183" fill="#7f1747" font-size="14" letter-spacing="1">MENESES ROOM RESERVATION</text>
+    <text x="600" y="382" fill="#333333" font-size="34" font-weight="700">Login to your</text>
+    <text x="600" y="421" fill="#333333" font-size="34" font-weight="700">account</text>
+    <line x1="504" y1="442" x2="696" y2="442" stroke="#e91e63" stroke-width="3"/>
+  </g>
+  <rect x="503" y="472" width="194" height="52" rx="6" fill="#ffffff"/>
+  <rect x="503" y="548" width="194" height="52" rx="6" fill="#ffffff"/>
+  <text x="525" y="505" fill="#777777" font-family="Arial, sans-serif" font-size="17">Student/Email ID</text>
+  <text x="525" y="581" fill="#777777" font-family="Arial, sans-serif" font-size="17">Password</text>
+  <text x="649" y="581" fill="#e91e63" font-family="Arial, sans-serif" font-size="14" font-weight="700">Show</text>
+  <rect x="503" y="626" width="194" height="54" rx="6" fill="#e91e63"/>
+  <text x="600" y="661" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Login</text>
+</svg>
