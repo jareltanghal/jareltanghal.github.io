@@ -2286,6 +2286,25 @@ body .container {
   transform-origin: center top;
 }
 
+.project-image-button,
+.project-modal-hero,
+.preview-image-wrap {
+  container-type: inline-size;
+}
+
+.project-image-button img[src^="project-previews/"]:not([src*="/dermasculpt-booking/"]),
+.project-modal-hero img[src^="project-previews/"]:not([src*="/dermasculpt-booking/"]),
+.preview-image-wrap img[src^="project-previews/"]:not([src*="/dermasculpt-booking/"]) {
+  --project-preview-top-crop: 2.22cqw;
+  position: relative;
+  top: calc(0px - var(--project-preview-top-crop));
+  height: calc(100% + var(--project-preview-top-crop));
+}
+
+.preview-image-wrap img[src$="31-access-denied.png"] {
+  --project-preview-top-crop: 3.38cqw;
+}
+
 .preview-arrow {
   position: absolute;
   top: 50%;

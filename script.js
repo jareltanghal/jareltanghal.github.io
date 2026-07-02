@@ -671,25 +671,27 @@ function setupProtectedImageFrame(frame, image, project, imagePath) {
   const positionMasks = () => {
     if (!masks.length || !image.naturalWidth || !frame.clientWidth || !frame.clientHeight) return;
 
-    const frameWidth = frame.clientWidth;
-    const frameHeight = frame.clientHeight;
+    const imageBoxWidth = image.clientWidth;
+    const imageBoxHeight = image.clientHeight;
     const imageWidth = image.naturalWidth;
     const imageHeight = image.naturalHeight;
     const imageStyle = window.getComputedStyle(image);
     const fit = imageStyle.objectFit;
-    let renderedWidth = frameWidth;
-    let renderedHeight = frameHeight;
-    let offsetX = 0;
-    let offsetY = 0;
+    const objectPositionY = imageStyle.objectPosition.trim().split(/\s+/)[1] || "50%";
+    const alignsToTop = ["top", "0", "0%", "0px"].includes(objectPositionY);
+    let renderedWidth = imageBoxWidth;
+    let renderedHeight = imageBoxHeight;
+    let offsetX = image.offsetLeft;
+    let offsetY = image.offsetTop;
 
     if (fit === "cover" || fit === "contain") {
       const scale = fit === "cover"
-        ? Math.max(frameWidth / imageWidth, frameHeight / imageHeight)
-        : Math.min(frameWidth / imageWidth, frameHeight / imageHeight);
+        ? Math.max(imageBoxWidth / imageWidth, imageBoxHeight / imageHeight)
+        : Math.min(imageBoxWidth / imageWidth, imageBoxHeight / imageHeight);
       renderedWidth = imageWidth * scale;
       renderedHeight = imageHeight * scale;
-      offsetX = (frameWidth - renderedWidth) / 2;
-      offsetY = imageStyle.objectPosition.includes("top") ? 0 : (frameHeight - renderedHeight) / 2;
+      offsetX += (imageBoxWidth - renderedWidth) / 2;
+      offsetY += alignsToTop ? 0 : (imageBoxHeight - renderedHeight) / 2;
     }
 
     $$(".privacy-mask", layer).forEach((mask, index) => {
@@ -719,6 +721,7 @@ function setupProtectedImageFrame(frame, image, project, imagePath) {
     frame.classList.remove("is-loading", "show-spinner", "has-image-error");
     frame.removeAttribute("aria-busy");
     positionMasks();
+    window.requestAnimationFrame(positionMasks);
     frame._imageLoadCleanup = null;
   };
 
