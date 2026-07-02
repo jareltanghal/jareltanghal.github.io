@@ -2217,7 +2217,7 @@ body .container {
   opacity: 0;
 }
 
-[data-static-image-frame] {
+.logo-initials[data-static-image-frame] {
   position: relative;
 }
 
