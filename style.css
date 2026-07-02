@@ -985,6 +985,7 @@ body .container {
 }
 
 .timeline {
+  --timeline-axis: 1rem;
   position: relative;
   margin-top: 3.5rem;
 }
@@ -992,7 +993,7 @@ body .container {
 .timeline::before {
   content: "";
   position: absolute;
-  left: 1rem;
+  left: var(--timeline-axis);
   top: 0;
   bottom: 0;
   width: 1px;
@@ -1002,7 +1003,7 @@ body .container {
 .timeline::after {
   content: "";
   position: absolute;
-  left: 1rem;
+  left: var(--timeline-axis);
   top: 0;
   width: 1px;
   height: 100%;
@@ -1022,7 +1023,7 @@ body .container {
 
 .timeline-node {
   position: absolute;
-  left: 0.65rem;
+  left: var(--timeline-axis);
   top: 0.65rem;
   z-index: 2;
   width: 0.7rem;
@@ -1031,6 +1032,7 @@ body .container {
   border-radius: 999px;
   background: var(--primary);
   box-shadow: 0 0 0 8px hsl(220 100% 50% / 0.1);
+  transform: translateX(-50%);
 }
 
 .experience-card {
@@ -1255,11 +1257,18 @@ body .container {
   font-size: 0.65rem;
 }
 
-.filters {
+.filter-scroll-shell {
   margin-top: 2rem;
+}
+
+.filters {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.filter-scrollbar {
+  display: none;
 }
 
 .filter-button {
@@ -1330,7 +1339,7 @@ body .container {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s ease, opacity 0.22s ease;
 }
 
 .project-image-button img[src^="project-previews/"],
@@ -1347,6 +1356,7 @@ body .container {
 .project-image-button::after {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: 0;
   background: linear-gradient(to top, hsl(0 0% 100% / 0.9), transparent);
 }
@@ -1354,7 +1364,7 @@ body .container {
 .project-badges,
 .project-arrow {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 }
 
 .project-badges {
@@ -1991,17 +2001,20 @@ body .container {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.22s ease;
   animation: modal-image-zoom 0.7s ease both;
 }
 
 .project-modal-gradient {
   position: absolute;
+  z-index: 2;
   inset: 0;
   background: linear-gradient(to top, var(--card), hsl(0 0% 100% / 0.4), transparent);
 }
 
 .modal-close {
   position: absolute;
+  z-index: 3;
   top: 0.75rem;
   right: 0.75rem;
   width: 2.25rem;
@@ -2030,6 +2043,7 @@ body .container {
 
 .modal-badges {
   position: absolute;
+  z-index: 3;
   left: 1rem;
   bottom: 0.75rem;
   display: flex;
@@ -2192,6 +2206,69 @@ body .container {
 }
 
 .preview-image-wrap img {
+  transition: opacity 0.22s ease;
+}
+
+[data-image-frame].is-loading > img {
+  opacity: 0.22;
+}
+
+[data-image-frame].has-image-error > img {
+  opacity: 0;
+}
+
+[data-static-image-frame] {
+  position: relative;
+}
+
+.hero-media[data-image-frame].is-loading > img {
+  opacity: 0.03;
+}
+
+.media-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: none;
+  border: 2px solid hsl(220 100% 50% / 0.2);
+  border-top-color: var(--primary);
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  animation: preview-spin 0.72s linear infinite;
+}
+
+[data-image-frame].is-loading.show-spinner > .media-loader {
+  display: block;
+}
+
+.privacy-mask-layer {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.project-modal-hero .privacy-mask-layer {
+  z-index: 1;
+}
+
+.privacy-mask {
+  position: absolute;
+  border-radius: 0.16rem;
+  background: hsl(220 20% 42% / 0.12);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes preview-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.preview-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2207,6 +2284,7 @@ body .container {
 .preview-arrow {
   position: absolute;
   top: 50%;
+  z-index: 4;
   display: none;
   width: 2rem;
   height: 2rem;
@@ -2581,7 +2659,7 @@ body .container {
 .project-scroll-card .project-image-button img {
   filter: saturate(0.78) brightness(0.96);
   transform: scale(1.09) translateY(var(--project-image-y));
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s ease;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.75s ease, opacity 0.22s ease;
 }
 
 .project-scroll-card.is-visible .project-image-button img {
@@ -2968,20 +3046,12 @@ body .container {
   }
 
   .timeline {
+    --timeline-axis: 0.65rem;
     margin-top: 2.25rem;
   }
 
   .timeline-item {
     padding-left: 2rem;
-  }
-
-  .timeline::before,
-  .timeline::after {
-    left: 0.65rem;
-  }
-
-  .timeline-node {
-    left: 0.3rem;
   }
 
   .timeline-item + .timeline-item {
@@ -3078,16 +3148,43 @@ body .container {
     gap: 0.9rem;
   }
 
-  .filters {
+  .filter-scroll-shell {
     margin-top: 1.35rem;
+  }
+
+  .filters {
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.55rem;
     scrollbar-width: none;
   }
 
   .filters::-webkit-scrollbar {
     display: none;
+  }
+
+  .filter-scrollbar {
+    position: relative;
+    display: block;
+    width: min(7rem, 42%);
+    height: 3px;
+    margin: 0.12rem auto 0;
+    overflow: hidden;
+    border-radius: 999px;
+    background: hsl(220 14% 92% / 0.8);
+    transition: opacity 0.2s ease;
+  }
+
+  .filter-scrollbar.is-hidden {
+    opacity: 0;
+  }
+
+  .filter-scrollbar span {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: 999px;
+    background: hsl(220 100% 50% / 0.58);
+    transition: width 0.18s ease, transform 0.08s linear;
   }
 
   .filter-button {
@@ -3304,17 +3401,12 @@ body .container {
     display: none;
   }
 
-  .timeline::before,
-  .timeline::after {
-    left: 2rem;
+  .timeline {
+    --timeline-axis: 2rem;
   }
 
   .timeline-item {
     padding-left: 5rem;
-  }
-
-  .timeline-node {
-    left: 1.85rem;
   }
 
   .hobby-grid {

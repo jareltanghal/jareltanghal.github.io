@@ -12,11 +12,30 @@
       property="og:description"
       content="A high-precision, interactive developer portfolio showcasing expertise in frontend architecture, UI design, and technical engineering."
     />
+    <meta property="og:url" content="https://jareltanghal.site/" />
     <meta
       property="og:image"
-      content="project-previews/timesheet-payroll/08-dashboard.png"
+      content="https://jareltanghal.site/assets/jarel-social-preview.jpeg"
     />
+    <meta
+      property="og:image:secure_url"
+      content="https://jareltanghal.site/assets/jarel-social-preview.jpeg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jarel Tanghal - Web Developer" />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jarel Tanghal | Portfolio" />
+    <meta
+      name="twitter:description"
+      content="A high-precision, interactive developer portfolio showcasing expertise in frontend architecture, UI design, and technical engineering."
+    />
+    <meta
+      name="twitter:image"
+      content="https://jareltanghal.site/assets/jarel-social-preview.jpeg"
+    />
     <title>Jarel Tanghal | Portfolio</title>
     <link
       rel="icon"
@@ -85,7 +104,8 @@
 
     <main>
       <section id="hero" class="hero section-grid">
-        <div class="hero-media" aria-hidden="true">
+        <div class="hero-media" data-image-frame data-static-image-frame aria-hidden="true">
+          <span class="media-loader" aria-hidden="true"></span>
           <img
             src="https://media.base44.com/images/public/6a212e2f85c4453105d131ba/66663465a_generated_ed305033.png"
             alt=""
@@ -148,8 +168,9 @@
           </div>
 
           <div class="about-layout">
-            <div class="about-image reveal reveal-left">
+            <div class="about-image reveal reveal-left" data-image-frame data-static-image-frame>
               <div class="image-glow"></div>
+              <span class="media-loader" aria-hidden="true"></span>
               <img
                 src="./assets/jarel'spicture.jpeg"
                 alt="Jarel Tanghal - Web Developer"
@@ -228,7 +249,12 @@
             <p>A collection of web development projects — click any card for full details and UI previews.</p>
           </div>
 
-          <div class="filters reveal reveal-right" id="projectFilters"></div>
+          <div class="filter-scroll-shell reveal reveal-right">
+            <div class="filters" id="projectFilters"></div>
+            <div class="filter-scrollbar" id="filterScrollbar" aria-hidden="true">
+              <span id="filterScrollThumb"></span>
+            </div>
+          </div>
           <div class="project-grid" id="projectGrid"></div>
         </div>
       </section>
@@ -323,7 +349,8 @@
     <div class="modal-shell" id="projectModal" aria-hidden="true">
       <div class="modal-backdrop" data-close-project></div>
       <article class="project-modal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
-        <div class="project-modal-hero">
+        <div class="project-modal-hero" data-image-frame>
+          <span class="media-loader" aria-hidden="true"></span>
           <img id="modalHeroImage" alt="" />
           <div class="project-modal-gradient"></div>
           <button class="modal-close" data-close-project aria-label="Close project modal">
@@ -402,7 +429,7 @@
           </button>
           <button class="contact-row" data-copy-phone data-phone="+639241049592">
             <span><ion-icon name="call-outline"></ion-icon></span>
-            <b><small>Mobile 2</small>+63 924 104 9592</b>
+            <b><small>Mobile</small>+63 924 104 9592</b>
             <em><ion-icon name="copy-outline"></ion-icon><small>copy</small></em>
           </button>
           <div class="contact-row static">
@@ -412,12 +439,12 @@
           <div class="social-divider"><span></span><small>social</small><span></span></div>
           <a class="contact-row link featured-github" href="https://github.com/jareltanghal" target="_blank" rel="noopener noreferrer">
             <span><ion-icon name="logo-github"></ion-icon></span>
-            <b><small>GitHub · Main</small>github.com/jareltanghal</b>
+            <b><small>GitHub</small>github.com/jareltanghal</b>
             <em><ion-icon name="star"></ion-icon></em>
           </a>
           <a class="contact-row link" href="https://github.com/JarelRendy" target="_blank" rel="noopener noreferrer">
             <span><ion-icon name="logo-github"></ion-icon></span>
-            <b><small>GitHub · Archive</small>github.com/JarelRendy</b>
+            <b><small>GitHub</small>github.com/JarelRendy</b>
             <em>→</em>
           </a>
           <a class="contact-row link" href="https://ph.jobstreet.com/profiles/jarelrendy-tanghal-FgHxCGCjS1" target="_blank" rel="noopener noreferrer">

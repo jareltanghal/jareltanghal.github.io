@@ -4,6 +4,7 @@ const PAGE_LOADER_DURATION_MS = 3300;
 const PAGE_LOADER_FADE_MS = 300;
 const PAGE_LOADER_PROGRESS_MS = PAGE_LOADER_DURATION_MS - PAGE_LOADER_FADE_MS;
 const RESUME_MIN_LOADING_MS = 4000;
+const IMAGE_SPINNER_DELAY_MS = 180;
 
 function resetToStart() {
   if ("scrollRestoration" in history) {
@@ -123,6 +124,81 @@ const EXPERIENCES = [
     tags: ["Operations", "Team Work", "Time Management", "Efficiency"],
   },
 ];
+
+const TIMESHEET_NAV_PROFILE_MASK = [82.4, 2.6, 11.2, 4.8];
+const TIMESHEET_PROFILE_HEADER_MASK = [31.5, 27.8, 30, 10.2];
+const TIMESHEET_PRIVACY_MASKS = {
+  "01-sign-in.png": [[48.6, 39.2, 27.4, 6]],
+  "02-forgot-password.png": [[48.6, 52.4, 27.4, 6]],
+  "05-email-verification.png": [[39.7, 44.2, 16.3, 4.7]],
+  "06-registration-submitted.png": [[43.4, 48.2, 13.2, 6.2]],
+  "07-awaiting-approval.png": [[42.7, 68.2, 14.6, 7.2]],
+  "08-dashboard.png": [
+    TIMESHEET_NAV_PROFILE_MASK,
+    [13.8, 72.2, 4.2, 4.5],
+    [33.1, 72.2, 8.1, 4.5],
+    [52.1, 72.2, 7.8, 4.5],
+    [71.2, 72.2, 5.2, 4.5],
+    [13.8, 94.2, 4.2, 4.5],
+    [33.1, 94.2, 8.1, 4.5],
+    [52.1, 94.2, 7.8, 4.5],
+    [71.2, 94.2, 5.2, 4.5],
+  ],
+  "09-export-history-modal.png": [TIMESHEET_NAV_PROFILE_MASK, [56.1, 14.5, 13.9, 77]],
+  "10-how-it-works.png": [TIMESHEET_NAV_PROFILE_MASK, [12.2, 0, 75, 19]],
+  "11-user-management.png": [TIMESHEET_NAV_PROFILE_MASK, [22.3, 49.6, 27.5, 49]],
+  "12-user-details.png": [
+    [28.7, 29.4, 22.5, 13.6],
+    [21.3, 52.8, 56.8, 8.5],
+    [68.2, 66.2, 9.2, 31.5],
+  ],
+  "14-api-configurations.png": [TIMESHEET_NAV_PROFILE_MASK, [36.2, 39, 25.5, 38]],
+  "15-account-requests.png": [[24.5, 12.5, 12.5, 4.2], [13.4, 47.8, 48.8, 50.5]],
+  "16-my-profile.png": [
+    TIMESHEET_NAV_PROFILE_MASK,
+    TIMESHEET_PROFILE_HEADER_MASK,
+    [27.1, 59.8, 21.9, 6.7],
+    [50.4, 59.8, 21.9, 6.7],
+    [27.1, 70.7, 21.9, 6.7],
+    [27.1, 81.4, 21.9, 6.7],
+  ],
+  "17-profile-security.png": [TIMESHEET_NAV_PROFILE_MASK, TIMESHEET_PROFILE_HEADER_MASK],
+  "18-profile-security-session.png": [TIMESHEET_NAV_PROFILE_MASK, TIMESHEET_PROFILE_HEADER_MASK, [35.2, 80.2, 29.6, 8.5]],
+  "19-profile-security-active-session.png": [TIMESHEET_NAV_PROFILE_MASK, TIMESHEET_PROFILE_HEADER_MASK, [35.2, 80.2, 29.6, 8.5]],
+  "20-profile-preferences.png": [TIMESHEET_NAV_PROFILE_MASK, TIMESHEET_PROFILE_HEADER_MASK],
+  "21-profile-activity.png": [TIMESHEET_NAV_PROFILE_MASK, TIMESHEET_PROFILE_HEADER_MASK, [35.4, 45.1, 28.8, 47]],
+  "22-servicetitan-date-range.png": [TIMESHEET_NAV_PROFILE_MASK],
+  "23-calendar-picker.png": [TIMESHEET_NAV_PROFILE_MASK],
+  "24-servicetitan-timesheets.png": [
+    TIMESHEET_NAV_PROFILE_MASK,
+    [15.7, 41.8, 67.6, 6.5],
+    [16, 62, 66.6, 24.5],
+    [16, 91.5, 67, 8.5],
+  ],
+  "25-servicetitan-breakdown.png": [
+    TIMESHEET_NAV_PROFILE_MASK,
+    [39.6, 7.1, 20.5, 5.8],
+    [39.9, 16.1, 22.3, 50.8],
+    [36.4, 68.8, 27, 17.6],
+  ],
+  "26-confirm-export.png": [TIMESHEET_NAV_PROFILE_MASK, [37.8, 43.1, 24.4, 8.2]],
+  "27-sending-timesheet.png": [[33.2, 55.1, 33.4, 6.2]],
+  "28-timedoctor-timesheets.png": [
+    TIMESHEET_NAV_PROFILE_MASK,
+    [15.7, 37.5, 67.6, 7.6],
+    [16, 58.2, 66.6, 27.5],
+    [16, 91.2, 67, 8.8],
+  ],
+  "29-timedoctor-breakdown.png": [
+    TIMESHEET_NAV_PROFILE_MASK,
+    [39.1, 13.2, 22.8, 5.5],
+    [36.2, 20.2, 26.8, 22.6],
+    [36.2, 43.6, 26.8, 16.4],
+    [36.2, 69, 26.8, 18],
+  ],
+  "30-paylocity-success.png": [[36.5, 49.2, 27.2, 12.5]],
+  "31-access-denied.png": [[43.6, 40.4, 13.3, 4.8], [35.2, 54.2, 18.2, 4.5]],
+};
 
 const PROJECTS = [
   {
@@ -284,6 +360,7 @@ const PROJECTS = [
       "project-previews/timesheet-payroll/30-paylocity-success.png",
       "project-previews/timesheet-payroll/31-access-denied.png",
     ],
+    privacyMasks: TIMESHEET_PRIVACY_MASKS,
     description:
       "A payroll sync and timesheet management system for Phoenix Water Solutions. It pulls ServiceTitan and Time Doctor records, lets admins review detailed employee time breakdowns, manages users and approvals, then sends verified punch records to Paylocity with clear progress and success states.",
     features: [
@@ -561,6 +638,171 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function getImageFilename(imagePath = "") {
+  return imagePath.split("/").pop() || "";
+}
+
+function getPrivacyMasks(project, imagePath) {
+  return project?.privacyMasks?.[getImageFilename(imagePath)] || [];
+}
+
+function setupProtectedImageFrame(frame, image, project, imagePath) {
+  if (!frame || !image) return;
+
+  frame._imageLoadCleanup?.();
+  frame.classList.remove("is-loading", "show-spinner", "has-image-error");
+  frame.removeAttribute("aria-busy");
+  $(".privacy-mask-layer", frame)?.remove();
+
+  const masks = getPrivacyMasks(project, imagePath);
+  const layer = document.createElement("span");
+  layer.className = "privacy-mask-layer";
+  layer.setAttribute("aria-hidden", "true");
+
+  masks.forEach((region) => {
+    const mask = document.createElement("span");
+    mask.className = "privacy-mask";
+    mask.dataset.region = region.join(",");
+    layer.appendChild(mask);
+  });
+
+  if (masks.length) frame.appendChild(layer);
+
+  const positionMasks = () => {
+    if (!masks.length || !image.naturalWidth || !frame.clientWidth || !frame.clientHeight) return;
+
+    const frameWidth = frame.clientWidth;
+    const frameHeight = frame.clientHeight;
+    const imageWidth = image.naturalWidth;
+    const imageHeight = image.naturalHeight;
+    const imageStyle = window.getComputedStyle(image);
+    const fit = imageStyle.objectFit;
+    let renderedWidth = frameWidth;
+    let renderedHeight = frameHeight;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    if (fit === "cover" || fit === "contain") {
+      const scale = fit === "cover"
+        ? Math.max(frameWidth / imageWidth, frameHeight / imageHeight)
+        : Math.min(frameWidth / imageWidth, frameHeight / imageHeight);
+      renderedWidth = imageWidth * scale;
+      renderedHeight = imageHeight * scale;
+      offsetX = (frameWidth - renderedWidth) / 2;
+      offsetY = imageStyle.objectPosition.includes("top") ? 0 : (frameHeight - renderedHeight) / 2;
+    }
+
+    $$(".privacy-mask", layer).forEach((mask, index) => {
+      const [x, y, width, height] = masks[index];
+      mask.style.left = `${offsetX + (x / 100) * renderedWidth}px`;
+      mask.style.top = `${offsetY + (y / 100) * renderedHeight}px`;
+      mask.style.width = `${(width / 100) * renderedWidth}px`;
+      mask.style.height = `${(height / 100) * renderedHeight}px`;
+    });
+  };
+
+  const loadToken = Symbol("image-load");
+  frame._imageLoadToken = loadToken;
+  let spinnerTimer = 0;
+  const source = image.getAttribute("src") || "";
+
+  const cleanup = () => {
+    window.clearTimeout(spinnerTimer);
+    image.removeEventListener("load", finishLoading);
+    image.removeEventListener("error", handleLoadError);
+    window.removeEventListener("online", retryLoading);
+  };
+
+  const finishLoading = () => {
+    if (frame._imageLoadToken !== loadToken) return;
+    cleanup();
+    frame.classList.remove("is-loading", "show-spinner", "has-image-error");
+    frame.removeAttribute("aria-busy");
+    positionMasks();
+    frame._imageLoadCleanup = null;
+  };
+
+  const showSpinner = (isError = false) => {
+    if (frame._imageLoadToken !== loadToken) return;
+    frame.classList.add("is-loading", "show-spinner");
+    frame.classList.toggle("has-image-error", isError);
+    frame.setAttribute("aria-busy", "true");
+  };
+
+  const watchImage = () => {
+    image.removeEventListener("load", finishLoading);
+    image.removeEventListener("error", handleLoadError);
+    image.addEventListener("load", finishLoading, { once: true });
+    image.addEventListener("error", handleLoadError, { once: true });
+  };
+
+  function handleLoadError() {
+    if (frame._imageLoadToken !== loadToken) return;
+    window.clearTimeout(spinnerTimer);
+    showSpinner(true);
+    window.removeEventListener("online", retryLoading);
+    window.addEventListener("online", retryLoading, { once: true });
+  }
+
+  function retryLoading() {
+    if (frame._imageLoadToken !== loadToken || !source) return;
+    window.clearTimeout(spinnerTimer);
+    frame.classList.remove("has-image-error");
+    showSpinner();
+    watchImage();
+    image.removeAttribute("src");
+    window.requestAnimationFrame(() => {
+      if (frame._imageLoadToken === loadToken) image.setAttribute("src", source);
+    });
+  }
+
+  frame._privacyMaskUpdate = positionMasks;
+
+  if (image.complete && image.naturalWidth > 0) {
+    finishLoading();
+    return;
+  }
+
+  frame.setAttribute("aria-busy", "true");
+  watchImage();
+
+  if (image.complete) {
+    handleLoadError();
+    frame._imageLoadCleanup = cleanup;
+    return;
+  }
+
+  spinnerTimer = window.setTimeout(() => {
+    if (frame._imageLoadToken !== loadToken || image.complete) return;
+    showSpinner();
+  }, IMAGE_SPINNER_DELAY_MS);
+  frame._imageLoadCleanup = cleanup;
+}
+
+function initStaticImageLoaders(root = document) {
+  $$('[data-static-image-frame]', root).forEach((frame) => {
+    const image = $("img", frame);
+    setupProtectedImageFrame(frame, image, null, image?.getAttribute("src"));
+  });
+}
+
+function updateFilterScrollIndicator() {
+  const filters = $("#projectFilters");
+  const track = $("#filterScrollbar");
+  const thumb = $("#filterScrollThumb");
+  if (!filters || !track || !thumb) return;
+
+  const overflow = filters.scrollWidth > filters.clientWidth + 1;
+  track.classList.toggle("is-hidden", !overflow);
+  if (!overflow || !track.clientWidth) return;
+
+  const thumbWidth = Math.max(24, track.clientWidth * (filters.clientWidth / filters.scrollWidth));
+  const maxScroll = filters.scrollWidth - filters.clientWidth;
+  const maxTravel = track.clientWidth - thumbWidth;
+  thumb.style.width = `${thumbWidth}px`;
+  thumb.style.transform = `translateX(${maxScroll ? (filters.scrollLeft / maxScroll) * maxTravel : 0}px)`;
+}
+
 function copyText(text) {
   if (navigator.clipboard && window.isSecureContext) {
     return navigator.clipboard.writeText(text);
@@ -824,6 +1066,20 @@ function renderProjectFilters() {
       renderProjects();
     });
   });
+
+  if (!target.dataset.scrollBound) {
+    target.addEventListener("scroll", updateFilterScrollIndicator, { passive: true });
+    target.dataset.scrollBound = "true";
+  }
+
+  window.requestAnimationFrame(() => {
+    const activeButton = $(".filter-button.active", target);
+    if (activeButton) {
+      const centeredLeft = activeButton.offsetLeft - (target.clientWidth - activeButton.offsetWidth) / 2;
+      target.scrollTo({ left: Math.max(0, centeredLeft), behavior: "smooth" });
+    }
+    updateFilterScrollIndicator();
+  });
 }
 
 function renderProjects() {
@@ -852,7 +1108,8 @@ function renderProjects() {
           data-reveal-delay="${Math.min(index * 65, 260)}"
           style="--project-delay:${Math.min(index * 65, 260)}ms"
         >
-          <button class="project-image-button" data-project-id="${project.id}" aria-label="Open ${escapeHtml(project.title)} details">
+          <button class="project-image-button" data-image-frame data-project-id="${project.id}" aria-label="Open ${escapeHtml(project.title)} details">
+            <span class="media-loader" aria-hidden="true"></span>
             <img src="${project.image}" alt="${escapeHtml(project.title)}" loading="lazy" />
             <span class="project-badges">
               <span class="project-badge">${escapeHtml(project.type)}</span>
@@ -885,6 +1142,11 @@ function renderProjects() {
 
   $$("[data-project-id]", target).forEach((button) => {
     button.addEventListener("click", () => openProjectModal(Number(button.dataset.projectId)));
+  });
+
+  $$("[data-image-frame]", target).forEach((frame) => {
+    const project = PROJECTS.find((item) => item.id === Number(frame.dataset.projectId));
+    setupProtectedImageFrame(frame, $("img", frame), project, project?.image);
   });
 
   initReveal();
@@ -939,8 +1201,10 @@ function renderProjectModal() {
   if (!selectedProject) return;
 
   const previews = selectedProject.previews || [];
+  const heroFrame = $(".project-modal-hero");
   $("#modalHeroImage").src = selectedProject.image;
   $("#modalHeroImage").alt = selectedProject.title;
+  setupProtectedImageFrame(heroFrame, $("#modalHeroImage"), selectedProject, selectedProject.image);
   $("#modalBadges").innerHTML = `
     <span class="project-badge">${escapeHtml(selectedProject.type)}</span>
     ${selectedProject.ongoing ? '<span class="ongoing-badge"><span></span>Ongoing</span>' : ""}
@@ -968,7 +1232,8 @@ function renderProjectModal() {
           <span class="dot green"></span>
           <span class="browser-address">${escapeHtml(selectedProject.demoUrl || "localhost:4200")}</span>
         </div>
-        <div class="preview-image-wrap">
+        <div class="preview-image-wrap" data-image-frame>
+          <span class="media-loader" aria-hidden="true"></span>
           <img src="${activeImage}" alt="UI preview ${activePreviewIndex + 1}" />
           ${
             previews.length > 1
@@ -998,6 +1263,10 @@ function renderProjectModal() {
       </div>
     `
     : "";
+
+  const previewImage = $("#modalPreview .preview-image-wrap img");
+  const previewFrame = $("#modalPreview .preview-image-wrap");
+  setupProtectedImageFrame(previewFrame, previewImage, selectedProject, activeImage);
 
   $$("[data-preview-prev]").forEach((button) =>
     button.addEventListener("click", () => {
@@ -1072,8 +1341,9 @@ function renderTestimonials() {
         </div>
         <blockquote>"${escapeHtml(item.quote)}"</blockquote>
         <div class="testimonial-person">
-          <span class="initials logo-initials">
-            <img src="${escapeHtml(item.logo)}" alt="${escapeHtml(item.initials)} logo" loading="lazy" onerror="this.remove(); this.parentElement.textContent='${escapeHtml(item.initials)}';" />
+          <span class="initials logo-initials" data-image-frame data-static-image-frame>
+            <span class="media-loader" aria-hidden="true"></span>
+            <img src="${escapeHtml(item.logo)}" alt="${escapeHtml(item.initials)} logo" loading="lazy" />
           </span>
           <p>${escapeHtml(item.name)}</p>
         </div>
@@ -1408,6 +1678,11 @@ function renderAll() {
 document.addEventListener("DOMContentLoaded", () => {
   scheduleResetToStart();
   renderAll();
+  initStaticImageLoaders();
+  window.addEventListener("resize", () => {
+    updateFilterScrollIndicator();
+    $$("[data-image-frame]").forEach((frame) => frame._privacyMaskUpdate?.());
+  }, { passive: true });
   initLoader();
   initNavbar();
   initRolePill();
