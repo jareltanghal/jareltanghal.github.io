@@ -3218,7 +3218,13 @@ body .container {
   }
 
   .project-image-button {
-    height: 8.75rem;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-modal-hero {
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 
   .project-content {
