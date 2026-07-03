@@ -2263,9 +2263,9 @@ body .container {
 .privacy-mask {
   position: absolute;
   border-radius: 0.16rem;
-  background: hsl(220 20% 42% / 0.12);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: hsl(220 20% 42% / 0.26);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
 }
 
 @keyframes preview-spin {
